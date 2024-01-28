@@ -52,7 +52,7 @@ const Account = () => {
 
   }
 
-    const upload_profile_picture = () => {
+  const upload_profile_picture =  () => {
 
     const image_ref = ref(firebase_storage, `profileimages/${image.name}`)
 

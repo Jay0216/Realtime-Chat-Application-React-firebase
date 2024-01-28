@@ -29,13 +29,16 @@ const ChatArea = () => {
 
     const [friends, setFriends] = useState([])
 
+    const [friends_id, setFriendsID] = useState([])
 
+    
 
     const fetch_added_friends_profiles = async () => {
 
         let friends_profiles = []
 
 
+        let friends_ids = []
         const friend = query(collection(Db_Connection, "friendsBook") , where("user_id", "==", get_props.id))
 
         const friends_book = await getDocs(friend)
@@ -50,11 +53,14 @@ const ChatArea = () => {
 
             friends_profiles.push(friends_data)
 
+            let friends_id = fr.data().friend_id
 
-
+            friends_ids.push(friends_id)
 
 
         })
+
+        setFriendsID(friends_ids)
         
         setFriends(friends_profiles)
 
@@ -130,6 +136,7 @@ const ChatArea = () => {
         sender_id: get_props.id,
         message: message,
         reciever: firstname,
+        reciever_id: fr_id,
         sender_name: get_props.f_name,
         timestamp: serverTimestamp()
         
@@ -176,6 +183,8 @@ const ChatArea = () => {
             setIsChatClicked(true)
 
             chat_menu_close()
+
+            view_friend_index(user_index)
             
             
         }else{
@@ -216,7 +225,7 @@ const ChatArea = () => {
 
         //in firestroe database ChatRooms Collection has the sender id and reciver profile name querying that mentioned data only
 
-        const recieving_msgs_query = query(collection(Db_Connection, "Messages") , where("reciever", "==", get_props.f_name), where("sender_name", "==", firstname))
+        const recieving_msgs_query = query(collection(Db_Connection, "Messages") , where("reciever_id", "==", get_props.id), where("sender_id", "==", fr_id))
 
         const fetched_message = onSnapshot(recieving_msgs_query, (q_snapshot) => {
             
@@ -259,7 +268,7 @@ const ChatArea = () => {
             
         })
 
-        const send_msgs_query = query(collection(Db_Connection, "Messages"), where("sender_name", "==", get_props.f_name), where("reciever", "==", firstname))
+        const send_msgs_query = query(collection(Db_Connection, "Messages"), where("sender_id", "==", get_props.id), where("reciever_id", "==", fr_id))
 
         const fetch_send_msgs = onSnapshot(send_msgs_query, (snapshots) => {
 
@@ -365,7 +374,62 @@ const ChatArea = () => {
         get_chat_list_class.style.left = '-300px'
     }
 
+    const [searchinput, setSearchInput] = useState("")
 
+    const get_search_input = (e) => {
+
+        console.log("Getting Search Input")
+
+        setSearchInput(e.target.value)
+
+        console.log(searchinput)
+
+        //setFriends(friends)
+
+        
+
+    }
+
+    const [fr_id, setFrId] = useState("")
+
+    const view_friend_index = (fr_index) => {
+        if(fr_index !== undefined && fr_index < friends_id.length){
+            setFrId(friends_id[fr_index])
+        }else{
+            console.log("Friend Index Not Found")
+        }
+    }
+
+
+    const searching_users = () => {
+
+        console.log("Searching users")
+
+        
+
+
+        if(searchinput == ""){
+
+            console.log("Search Input Reseted")
+            fetch_added_friends_profiles()
+        }else{
+            console.log("Search Found")
+
+            const search_result = friends.filter(friend_data => friend_data.firstname.includes(searchinput) || friend_data.lastname.includes(searchinput))
+
+            console.log(search_result)
+
+            setFriends(search_result)
+        }
+
+
+
+    }
+
+
+
+    //there have a bug in fetching real time messages
+    //that bug is real time fetching messages using the friend firstname that is needed to be updated to the friend id (bug fixed)
     
 
 
@@ -425,8 +489,8 @@ const ChatArea = () => {
                     <h2 className="cht-title">Chat List</h2>
 
                     <div className="search-bar">
-                    <Input  className="search" type="text" placeholder="Search users"></Input>
-                    <Button backgroundColor="green.500" className="search-btn">Search</Button>
+                    <Input onChange={get_search_input} className="search" type="text" placeholder="Search users"></Input>
+                    <Button onClick={searching_users} backgroundColor="green.500" className="search-btn">Search</Button>
 
                   </div>
                     
@@ -502,7 +566,7 @@ const ChatArea = () => {
                      
                     </svg> : null}
 
-                    <h1>{profilename}</h1>
+                    <h1>{profilename} id: {fr_id}</h1>
                     
 
 
