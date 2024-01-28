@@ -1,0 +1,114 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-cls{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0E1413;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+.main-content{
+    margin-left: 400px;
+    padding-top: 100px;
+}
+
+
+.account-main{
+    margin-left: 150px;
+}
+
+.next-btn .btn{
+    margin-top: 120px;
+    margin-left: 190px;
+}
+
+.title{
+    margin-left: 140px;
+}
+
+.main-area{
+
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.image{
+    margin-left: 140px;
+    margin-top: 80px;
+}
+
+
+
+.upload-area{
+
+    margin-top: 50px;
+}
+
+.input-area{
+
+    margin-top: 80px;
+}
+
+.step-counter{
+
+    margin-top: 50px;
+    margin-left: 210px;
+}
+
+.input-areas{
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.input-areas h2{
+    margin-bottom: 20px;
+}
+
+.input-areas .nickname-area{
+    margin-top: 30px;
+}
+
+.add-btn-2{
+
+    margin-top: 50px;
+    margin-left: 110px;
+}
+
+.submit-btn{
+    margin-top: 100px;
+    margin-left: 160px;
+}
+
+.tasks-done{
+
+    margin-top: 100px;
+    margin-left: 80px;
+}
+
+
+@media (max-width: 600px){
+
+
+    .main-content{
+        padding: 0%;
+        margin: 0%;
+
+        
+        justify-content: center;
+        flex-direction: column-reverse;
+        
+    }
+
+    .steps{
+        width: 320px;
+        
+    }
+    
+}
