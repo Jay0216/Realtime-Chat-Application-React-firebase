@@ -1,5 +1,5 @@
 # Realtime-Chat-Application-React-firebase
-A Chat Application that can use for 
+This Chat Application that can use for chat with your friends like in social media.
 
 
 Note -: 
