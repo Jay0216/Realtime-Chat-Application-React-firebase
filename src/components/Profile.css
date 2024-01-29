@@ -105,7 +105,7 @@
 .pro-image-2{
     width: 200px;
     height: 200px;
-    margin-left: 20px;
+    margin-left: 25px;
     border-radius: 30px;
 }
 
@@ -115,6 +115,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 50px;
+    
 }
 
 
@@ -124,11 +125,19 @@
     font-size: 26px;
     cursor: pointer;
     display: flex;
+    align-items: center;
 }
 
 
 .your-profile Button{
     margin-left: 200px;
+}
+
+.your-profile img{
+    border-radius: 35px;
+    width: 70px;
+    height: 70px;
+    margin-right: 30px;
 }
 
 
@@ -151,7 +160,7 @@
     margin-left: 30px;
 }
 
-@media (max-width: 500px){
+@media (max-width: 600px){
     .friends-list{
         position: fixed;
         background-color: #506965;
@@ -164,6 +173,8 @@
         transition: 1s;
         
     }
+
+    
 
     .intro{
         margin-right: 0;
@@ -221,7 +232,7 @@
 
     .usernames{
         margin-left: 40px;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .pro-image-1{
@@ -240,14 +251,22 @@
     }
 
     .pro-image-2{
-        width: 145px;
+        width: 147px;
         height: 130px;
+        
+    }
+
+    .your-profile img{
+        border-radius: 35px;
+        width: 50px;
+        height: 50px;
+        margin-right: 30px;
     }
 
     
 
     .profile-details{
-        flex-direction: column-reverse;
+        flex-direction: column;
         margin: auto;
         width: 46%;
         padding-top: 50px;
@@ -255,7 +274,7 @@
     }
 
     .pro-title{
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .menu-icon-1{
@@ -267,4 +286,81 @@
     
 
     
+}
+
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .profile-main {
+        font-size: 18px; 
+    }
+
+    .friends-list {
+        width: 41%; 
+        font-size: 15px;
+    }
+
+    .profile-details {
+        margin-right: 260px; 
+        margin-top: 160px;
+    }
+
+    .btn-section {
+        margin-top: 30px;
+    }
+
+    .name {
+        font-size: 20px; 
+    }
+
+    
+
+    .pro-title {
+        font-size: 25px; 
+    }
+
+    .pro-image-1 {
+        width: 60px;
+        height: 60px; 
+
+    }
+    .usernames {
+        margin-left: 70px; 
+    }
+
+    .pro-image-2 {
+        width: 150px; 
+        height: 150px; 
+        margin-left: 26px; 
+    }
+
+    .your-profile {
+        font-size: 22px; 
+
+    }
+    .your-profile Button {
+        margin-left: 150px; 
+
+    }
+    .your-profile img {
+        width: 60px; 
+        height: 60px; 
+        margin-right: 20px; 
+    }
+
+    .intro {
+        margin-right: 100px; 
+    }
+
+    
+
+    .search-bar .search {
+        width: 240px; 
+        
+    }
+
+    .search-btn {
+        margin-right: 5px; 
+    }
+
+   
 }

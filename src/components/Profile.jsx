@@ -106,6 +106,8 @@ const Profile = () => {
 
     const [user, setUsername] = useState("")
 
+    const [user_image_url, setUserImage] = useState("")
+
     
     
 
@@ -141,6 +143,8 @@ const Profile = () => {
       setLoggedUser(logged_user_data)
 
       setUsername(logged_user_data[0].Firstname)
+
+      setUserImage(logged_user_data[0].image_url)
 
 
       
@@ -663,7 +667,10 @@ const Profile = () => {
 
                 <div className="your-profile">
 
-                  <h1>My Profile</h1>
+                <img width="60px" src={user_image_url}  alt="" />
+
+                  <h2>{user} </h2>
+                  
 
 
                   <Button className="view-btn" onClick={your_profile}>View</Button>
@@ -675,7 +682,7 @@ const Profile = () => {
                   <h1>Friends list</h1>
 
                   <div className="search-bar">
-                    <Input onChange={handle_search_input} className="search" type="text" placeholder="Search users"></Input>
+                    <Input onChange={handle_search_input} className="search" type="text" placeholder="Search by usernames"></Input>
                     <Button onClick={search_users} backgroundColor="green.500" className="search-btn">Search</Button>
 
                   </div>

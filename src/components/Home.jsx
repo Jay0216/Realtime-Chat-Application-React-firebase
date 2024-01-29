@@ -36,7 +36,7 @@ const Home = () => {
 
                 <div className="content">
 
-                    <h1><span>Chat with friends</span>, Share Files, Share<br></br> your expiriences.</h1>
+                    <h1><span>Chat with friends</span>, Share Your Ideas, Share<br></br> your expiriences.</h1>
 
                     <Button className="seemore-btn" backgroundColor="green.600">See more</Button>
                 </div>

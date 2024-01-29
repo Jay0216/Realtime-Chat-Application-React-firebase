@@ -30,6 +30,7 @@ const ChatArea = () => {
     const [friends, setFriends] = useState([])
 
     const [friends_id, setFriendsID] = useState([])
+    
 
     
 
@@ -211,7 +212,7 @@ const ChatArea = () => {
 
     
 
-    const [msg_alert, setMessageAlert] = useState("")
+    
     
 
     
@@ -245,7 +246,7 @@ const ChatArea = () => {
 
                     fetched_msgs.push(data)
                     
-                    setMessageAlert(change.doc.data().message)
+                    
                     
 
                 }if(change.type === "modified") {
@@ -284,7 +285,7 @@ const ChatArea = () => {
 
                     send_msg.push(data)
 
-                    setMessageAlert(send_msgs.doc.data().message)
+                    
                     
                 }
             })
@@ -442,6 +443,8 @@ const ChatArea = () => {
     //need fix the friend id according to the search results profiles bug in search feature(bug fixed)
 
 
+    // need to complete the message alert feature
+
     
 
   
@@ -515,7 +518,7 @@ const ChatArea = () => {
 
                                    <span className="names">{info.firstname} {info.lastname}</span>
 
-                                   <p className="msg-alert">{msg_alert}</p>
+                                   
                                 </div>
 
                                 
