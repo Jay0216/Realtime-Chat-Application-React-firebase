@@ -41,10 +41,14 @@
 
 .chat-input{
     margin-top: 10px;
+    width: 100%;
+    max-width: 550px;
+    display: flex;
 }
 
 .chat-input .input{
-    width: 550px;
+    flex: 1;
+    margin-right: 10px;
 }
 
 .chat-list{
@@ -90,11 +94,12 @@
 
 .chat-btns-areas{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .send-btn{
-    margin-left: 30px;
+    margin-right: 100px;
 }
 
 .chat-friends{
@@ -107,9 +112,10 @@
     margin-top: 70px;
     padding:4px;
     height: 640px;
-    width: 600px;
+    width: 140%;
     overflow-x: hidden;
     overflow-y: auto;
+    max-width: 610px;
     
 }
 
@@ -148,6 +154,7 @@
     width: 65%;
     margin-left: 100px;
     text-align: center;
+    margin-top: 140px;
 }
 
 .cht-intro-img{
@@ -159,74 +166,15 @@
 }
 
 
-/* iphone 14 pro and 12, 11*/
-@media (width: 430px){
 
+@media (max-width: 600px){
 
-    .chat-list{
-       position: fixed;
-       background-color: #506965;
-       height: 100vh;
-       width: 300px;
-       top: 0;
-       left: -300px;
-       text-align: left;
-       z-index: 2;
-       transition: 1s;
-        
-    }
-
-    .cht-intro{
-        flex-direction: column;
-        text-align: center;
-        margin: 0%;
+    .chat-main {
         width: 100%;
+        min-height: 100vh; 
     }
 
-    .cht-intro-img{
-        margin: 0%;
-    }
-
-    .msg-area{
-        flex-direction: column-reverse;
-    }
-
-    .chat-area{
-        flex-direction: column-reverse;
-        margin-left: 6px;
-        width: 44%;
-        
-    }
-
-    .msg-area{
-        height: 680px;
-        width: 400px;
-        font-size: 12px;
-        
-    }
-
-    .chat-input .input{
-
-        width: 320px;
-        margin-left: 20px;
-        
-    }
-
-    .chat-area h1{
-        margin-top: 10px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .send-btn{
-        margin-left: 10px;
-    }
-}
-
-
-
-@media screen and (max-width: 400px){
-    .chat-list{
+    .chat-list {
         position: fixed;
         background-color: #506965;
         height: 100vh;
@@ -236,137 +184,6 @@
         text-align: left;
         z-index: 2;
         transition: 1s;
-         
-     }
- 
-     .cht-intro{
-         flex-direction: column;
-         text-align: center;
-         margin: 0%;
-         width: 100%;
-     }
- 
-     .cht-intro-img{
-         margin: 0%;
-     }
- 
-     .msg-area{
-         flex-direction: column-reverse;
-         
-     }
- 
-     .chat-area{
-         flex-direction: column-reverse;
-         margin-left: 0%;
-         width: 50%;
-         
-     }
- 
-     .msg-area{
-         height: 550px;
-         width: 350px;
-         font-size: 14px;
-         
-     }
- 
-     .chat-input .input{
- 
-         width: 300px;
-         margin-left: 7px;
-         
-     }
- 
-     .chat-area h1{
-         margin-top: 10px;
-         text-align: center;
-         font-size: 18px;
-     }
- 
-     .send-btn{
-         margin-left: 10px;
-     }
-}
-
-
-/* for iphone 5s */
-@media (width: 320px){
-    .chat-list{
-        position: fixed;
-        background-color: #506965;
-        height: 100vh;
-        width: 300px;
-        top: 0;
-        left: -300px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
-         
-     }
- 
-     .cht-intro{
-         flex-direction: column;
-         text-align: center;
-         margin: 0%;
-         width: 100%;
-     }
- 
-     .cht-intro-img{
-         margin: 0%;
-     }
- 
-     .msg-area{
-         flex-direction: column-reverse;
-         
-     }
- 
-     .chat-area{
-         flex-direction: column-reverse;
-         margin-left: 0%;
-         width: 46%;
-         
-     }
- 
-     .msg-area{
-         height: 550px;
-         width: 300px;
-         font-size: 12px;
-         
-     }
- 
-     .chat-input .input{
- 
-         width: 250px;
-         margin-left: 7px;
-         
-     }
- 
-     .chat-area h1{
-         margin-top: 10px;
-         text-align: center;
-         font-size: 14px;
-     }
- 
-     .send-btn{
-         margin-left: 10px;
-     }
-}
-
-
-/* for iphone 12 pro*/
-@media (width: 390px){
-
-
-    .chat-list{
-       position: fixed;
-       background-color: #506965;
-       height: 100vh;
-       width: 300px;
-       top: 0;
-       left: -300px;
-       text-align: left;
-       z-index: 2;
-       transition: 1s;
-        
     }
 
     .cht-intro{
@@ -376,304 +193,65 @@
         width: 100%;
     }
 
+    .cht-intro-content{
+        margin-top: 100px;
+    }
+
     .cht-intro-img{
         margin: 0%;
     }
 
-    .msg-area{
-        flex-direction: column-reverse;
-    }
-
-    .chat-area{
-        flex-direction: column-reverse;
-        margin-left: 0px;
-        width: 47%;
-        
-    }
-
-    .msg-area{
-        height: 600px;
-        width: 375px;
-        font-size: 12px;
-        
-    }
-
-    .chat-input .input{
-
-        width: 300px;
-        margin-left: 20px;
-        
-    }
-
-    .chat-area h1{
-        margin-top: 10px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .send-btn{
-        margin-left: 10px;
-    }
-}
-
-
-/* iphone xr, 7, 8 plus*/
-
-@media (width: 414px){
-
-
-    .chat-list{
-       position: fixed;
-       background-color: #506965;
-       height: 100vh;
-       width: 300px;
-       top: 0;
-       left: -300px;
-       text-align: left;
-       z-index: 2;
-       transition: 1s;
-        
-    }
-
-    .cht-intro{
+    .chat-area {
         flex-direction: column;
-        text-align: center;
-        margin: 0%;
-        width: 100%;
+        margin-left: 0%;
+        width: 100%; 
+        background-color: #0E1413;
     }
 
-    .cht-intro-img{
-        margin: 0%;
-    }
-
-    .msg-area{
+    .msg-area {
         flex-direction: column-reverse;
+        margin-top: 70px;
+        padding: 4px;
+        height: 570px;
+        max-width: 100%; 
+        overflow-x: hidden;
+        overflow-y: auto;
+        font-size: 13px;
     }
 
-    .chat-area{
-        flex-direction: column-reverse;
-        margin-left: 6px;
-        width: 44%;
-        
-    }
-
-    .msg-area{
-        height: 590px;
-        width: 380px;
-        font-size: 12px;
-        
-    }
-
-    .chat-input .input{
-
-        width: 310px;
-        margin-left: 20px;
-        
-    }
-
-    .chat-area h1{
-        margin-top: 10px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .send-btn{
-        margin-left: 10px;
-    }
-}
-
-/*iphone x*/
-
-
-@media (width: 375px){
-
-
-    .chat-list{
-       position: fixed;
-       background-color: #506965;
-       height: 100vh;
-       width: 300px;
-       top: 0;
-       left: -300px;
-       text-align: left;
-       z-index: 2;
-       transition: 1s;
-        
-    }
-
-    .cht-intro{
+    .messages {
         flex-direction: column;
-        text-align: center;
-        margin: 0%;
-        width: 100%;
-    }
-
-    .cht-intro-img{
-        margin: 0%;
-    }
-
-    .msg-area{
-        flex-direction: column-reverse;
-    }
-
-    .chat-area{
-        flex-direction: column-reverse;
-        margin-left: 6px;
-        width: 50%;
+        display: inline-block;
+        word-wrap: break-word;
+        padding: 10px;
+        margin: 0 auto;
+        border-radius: 8px;
         
     }
 
-    .msg-area{
-        height: 550px;
-        width: 347px;
-        font-size: 12px;
+    .chat-input .input {
         
+        width: 150%; 
+        max-width: 500px;
+        margin-left: 10px;
     }
 
-    .chat-input .input{
-
-        width: 275px;
-        margin-left: 20px;
-        
-    }
-
-    .chat-area h1{
+    .chat-area h1 {
         margin-top: 10px;
         text-align: center;
         font-size: 18px;
     }
 
     .send-btn{
-        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
     }
+
+    
+
+    
 }
 
 
-/* galaxy s8*/
-@media (width: 360px){
-    .chat-list{
-        position: fixed;
-        background-color: #506965;
-        height: 100vh;
-        width: 300px;
-        top: 0;
-        left: -300px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
-         
-     }
- 
-     .cht-intro{
-         flex-direction: column;
-         text-align: center;
-         margin: 0%;
-         width: 100%;
-     }
- 
-     .cht-intro-img{
-         margin: 0%;
-     }
- 
-     .msg-area{
-         flex-direction: column-reverse;
-         
-     }
- 
-     .chat-area{
-         flex-direction: column-reverse;
-         margin-left: 0%;
-         width: 46%;
-         
-     }
- 
-     .msg-area{
-         height: 550px;
-         width: 340px;
-         font-size: 12px;
-         
-     }
- 
-     .chat-input .input{
- 
-         width: 290px;
-         margin-left: 7px;
-         
-     }
- 
-     .chat-area h1{
-         margin-top: 10px;
-         text-align: center;
-         font-size: 14px;
-     }
- 
-     .send-btn{
-         margin-left: 10px;
-     }
-}
 
 
-@media (width: 412px){
-    .chat-list{
-        position: fixed;
-        background-color: #506965;
-        height: 100vh;
-        width: 300px;
-        top: 0;
-        left: -300px;
-        text-align: left;
-        z-index: 2;
-        transition: 1s;
-         
-     }
- 
-     .cht-intro{
-         flex-direction: column;
-         text-align: center;
-         margin: 0%;
-         width: 100%;
-     }
- 
-     .cht-intro-img{
-         margin: 0%;
-     }
- 
-     .msg-area{
-         flex-direction: column-reverse;
-         text-align: center;
-         
-     }
- 
-     .chat-area{
-         flex-direction: column-reverse;
-         margin-left: 0%;
-         width: 40%;
-         
-         
-         
-     }
- 
-     .msg-area{
-         height: 650px;
-         width: 390px;
-         font-size: 12px;
-         
-     }
- 
-     .chat-input .input{
- 
-         width: 300px;
-         margin-left: 23px;
-         
-     }
- 
-     .chat-area h1{
-         margin-top: 10px;
-         text-align: center;
-         font-size: 14px;
-     }
- 
-     .send-btn{
-         margin-left: 10px;
-     }
-}

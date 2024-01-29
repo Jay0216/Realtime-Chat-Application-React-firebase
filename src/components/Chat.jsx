@@ -555,7 +555,7 @@ const ChatArea = () => {
                     
                     <h1>Welcome to chat room</h1>
                     <h2>width : {chatwidth}</h2>
-                     <img className="cht-intro-img" src="src/assets/Img-07.png" alt="" width="420px"/>
+                    <img className="cht-intro-img" src="src/assets/Img-07.png" alt="" width="420px"/>
                     
                    </div>
                 </div>
@@ -591,9 +591,14 @@ const ChatArea = () => {
 
                                 <div className="messages">
                                   {msgs.message} 
+                                  
                                 </div>
-                                
+
                                 <span>{msgs.timestamp?.toDate().toLocaleTimeString()}</span>
+
+                                
+                                
+                                
                                 
                                 </li>
                         ))}
