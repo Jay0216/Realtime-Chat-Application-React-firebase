@@ -486,17 +486,12 @@ const Profile = () => {
 
       setSearchInput(e.target.value)
 
-      const search_result = data.filter(datas => datas.username.includes(e.target.value))
 
       
 
-      console.log(search_result)
+      
 
-      let searched_user = []
-
-      searched_user.push(search_result)
-
-      setData(...searched_user, ...data)
+      
 
 
     }
@@ -506,17 +501,19 @@ const Profile = () => {
 
       
 
-      const search_result = data.filter(datas => datas.username.includes(searchinput))
+     if(searchinput == ""){
+       console.log("Search Input Reseted")
 
-      
+       fetch_all_profile_data()
+     }else{
 
-      console.log(search_result)
+       const search_result = data.filter(profiles => profiles.username.includes(searchinput))
 
-      let searched_user = []
+       setData(search_result)
 
-      searched_user.push(search_result)
+       console.log("Search User Found")
 
-      setData(...searched_user, data)
+     }
 
       
 
@@ -528,12 +525,13 @@ const Profile = () => {
 
     }
 
-    const search = () => {
-
-      console.log(search_users())
-    }
-
     
+
+    useEffect(() => {
+
+      search_users()
+
+    }, [searchinput])
 
 
     

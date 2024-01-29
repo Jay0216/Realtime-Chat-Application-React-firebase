@@ -169,6 +169,7 @@ const ChatArea = () => {
 
     const [ischatclicked, setIsChatClicked] = useState(false)
 
+    const [fr_id, setFrId] = useState("")
     const view_chat_profiles = (user_index) => {
 
         
@@ -182,9 +183,11 @@ const ChatArea = () => {
 
             setIsChatClicked(true)
 
+            setFrId(friends[user_index].friend_id)
+
             chat_menu_close()
 
-            view_friend_index(user_index)
+            
             
             
         }else{
@@ -386,19 +389,16 @@ const ChatArea = () => {
 
         //setFriends(friends)
 
+
+        
+
         
 
     }
 
-    const [fr_id, setFrId] = useState("")
+    
 
-    const view_friend_index = (fr_index) => {
-        if(fr_index !== undefined && fr_index < friends_id.length){
-            setFrId(friends_id[fr_index])
-        }else{
-            console.log("Friend Index Not Found")
-        }
-    }
+    
 
 
     const searching_users = () => {
@@ -427,13 +427,19 @@ const ChatArea = () => {
     }
 
 
+    useEffect(() => {
+
+        searching_users()
+    }, [searchinput])
+
+
 
     //there have a bug in fetching real time messages
     //that bug is real time fetching messages using the friend firstname that is needed to be updated to the friend id (bug fixed)
     
 
 
-
+    //need fix the friend id according to the search results profiles bug in search feature(bug fixed)
 
 
     
