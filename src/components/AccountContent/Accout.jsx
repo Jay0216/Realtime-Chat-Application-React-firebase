@@ -252,12 +252,12 @@ const Account = () => {
 
             <div className="main-area">
 
-               <h1>1. Set up Profile Picture</h1>
+               <h1 className="step-title">1. Set up Profile Picture</h1>
 
 
            <div className="image">
 
-             <Image src={image_url} borderRadius="full" border="1px" width="150px" height="150px"></Image>
+             <Image className="img" src={image_url} borderRadius="full" border="1px"/>
            </div>
 
 
@@ -266,7 +266,7 @@ const Account = () => {
               <input onChange={get_profile_picture} type="file" name="file" />
 
 
-             <Button backgroundColor="green.600" onClick={add_profile_image}>Add</Button>
+              <Button backgroundColor="green.600" onClick={add_profile_image}>Add</Button>
             </div>
            </div>
 
@@ -284,10 +284,12 @@ const Account = () => {
 
 
 
-            <h1>2. User Details</h1>
+            <h1 className="step-title">2. User Details</h1>
 
 
             <div className="input-areas">
+
+            
 
               <div className="username-area">
 
@@ -321,7 +323,7 @@ const Account = () => {
           <div className="main-area">
 
 
-            <h1>3. Finish up Your Account.</h1>
+            <h1 className="step-title">3. Finish up Your Account.</h1>
 
 
 

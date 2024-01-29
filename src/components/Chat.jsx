@@ -495,10 +495,10 @@ const ChatArea = () => {
                     <h2 className="cht-title">Chat List</h2>
 
                     <div className="search-bar">
-                    <Input onChange={get_search_input} className="search" type="text" placeholder="Search users"></Input>
-                    <Button onClick={searching_users} backgroundColor="green.500" className="search-btn">Search</Button>
+                     <Input onChange={get_search_input} className="search" type="text" placeholder="Search users"></Input>
+                     <Button onClick={searching_users} backgroundColor="green.500" className="search-btn">Search</Button>
 
-                  </div>
+                    </div>
                     
                      
 
@@ -572,7 +572,7 @@ const ChatArea = () => {
                      
                     </svg> : null}
 
-                    <h1>{profilename} id: {fr_id}</h1>
+                    <h1>{profilename}</h1>
                     
 
 

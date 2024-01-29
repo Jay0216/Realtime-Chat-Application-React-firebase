@@ -28,6 +28,8 @@
     width: 40%;
     height: 100vh;
     background-color: #506965;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .friends-list .list{
@@ -149,7 +151,7 @@
     margin-left: 30px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 500px){
     .friends-list{
         position: fixed;
         background-color: #506965;

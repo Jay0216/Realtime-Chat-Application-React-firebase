@@ -39,9 +39,19 @@
     margin-top: 50px;
 }
 
+
+
+
+
+
 .image{
     margin-left: 140px;
     margin-top: 80px;
+}
+
+.image .img{
+    width: 150px;
+    height: 150px;
 }
 
 
@@ -54,6 +64,7 @@
 .input-area{
 
     margin-top: 80px;
+    
 }
 
 .step-counter{
@@ -95,20 +106,100 @@
 
 @media (max-width: 600px){
 
+    .main-cls{
+        width: auto;
+        min-height: 120vh;
+        
+        
+    }
+    
+
 
     .main-content{
-        padding: 0%;
-        margin: 0%;
+        padding-top: 0%;
+        margin-left: 0%;
+        margin-right: 2%;
 
+        text-align: center;
+        font-size: 13px;
+        
+        flex-direction: column-reverse;
+        justify-content: center;
+        
+    }
+
+    .image{
+        flex-direction: column;
+        margin: 100px auto;
+        width: fit-content;
         
         
+    }
+
+    .image .img{
         flex-direction: column;
         
+    }
+
+    .upload-area{
+        flex-direction: column;
+        
+        
+    }
+
+
+    .step-title{
+        text-align: left;
+    }
+    
+
+    .upload-area .main-area{
+        width: auto;
+    }
+
+    .title{
+        margin: 0%;
     }
 
     .steps{
         width: 320px;
         
+    }
+
+    .input-area input{
+        font-size: 10px;
+        
+    }
+    
+
+    .account-main{
+        margin: 0%;
+    }
+
+    .step-counter{
+        margin: auto;
+    }
+
+    .input-areas{
+        flex-direction: column;
+        margin-left: 0%;
+    }
+
+    .add-btn-2{
+        margin-left: 0%;
+    }
+
+    .tasks-done{
+        flex-direction: column-reverse;
+        margin-left: 0%;
+    }
+
+    .step-counter{
+        margin-top: 10%;
+    }
+
+    .submit-btn{
+        margin-left: 0%;
     }
     
 }

@@ -154,6 +154,10 @@
     margin-left: 150px;
 }
 
+.search-bar{
+    margin-top: 50px;
+}
+
 
 /* iphone 14 pro and 12, 11*/
 @media (width: 430px){

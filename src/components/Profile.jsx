@@ -753,7 +753,7 @@ const Profile = () => {
 
                    <div className="friends-count">
 
-                    <h1>Friends Counter : 567</h1>
+                    
                    </div>
 
                    <div className="email">
