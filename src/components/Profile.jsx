@@ -25,6 +25,8 @@ const Profile = () => {
 
     const [user_ids, setUserIDS] = useState([])
 
+    const [filtered_data, setFilteredData] = useState([])
+
 
     const fetch_all_profile_data =  async () => {
 
@@ -58,6 +60,8 @@ const Profile = () => {
           setUserIDS(fetched_id)
 
           setData(fetched_data)
+
+          setFilteredData(fetched_data)
 
       }catch(e){
         console.log(e)
@@ -482,6 +486,7 @@ const Profile = () => {
 
 
     const [searchinput, setSearchInput] = useState("")
+    
 
     const handle_search_input = (e) => {
 
@@ -490,6 +495,8 @@ const Profile = () => {
 
       setSearchInput(e.target.value)
 
+      
+      
 
       
 
@@ -503,19 +510,24 @@ const Profile = () => {
 
     const search_users = () => {
 
-      
+      console.log(searchinput)
 
      if(searchinput == ""){
        console.log("Search Input Reseted")
 
-       fetch_all_profile_data()
+       
+       setData(filtered_data)
      }else{
+       
+       
 
-       const search_result = data.filter(profiles => profiles.username.includes(searchinput))
+       const search_result = filtered_data.filter(profiles => profiles.username.toLowerCase().includes(searchinput.toLowerCase()))
 
        setData(search_result)
 
        console.log("Search User Found")
+
+       console.log(search_result)
 
      }
 
@@ -535,7 +547,7 @@ const Profile = () => {
 
       search_users()
 
-    }, [searchinput])
+    }, [searchinput, filtered_data])
 
 
     
@@ -562,6 +574,7 @@ const Profile = () => {
         nickname: nickname,
         firstname: firstname,
         lastname: lastname,
+        fullname: firstname + " " + lastname,
         image: image_url,
         added_user: user,
         friend_id: id

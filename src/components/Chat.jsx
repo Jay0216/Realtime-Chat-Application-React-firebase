@@ -29,6 +29,8 @@ const ChatArea = () => {
 
     const [friends, setFriends] = useState([])
 
+    const [filtered_friends_data, setFilteredData] = useState([])
+
     const [friends_id, setFriendsID] = useState([])
     
 
@@ -64,6 +66,8 @@ const ChatArea = () => {
         setFriendsID(friends_ids)
         
         setFriends(friends_profiles)
+
+        setFilteredData(friends_profiles)
 
         //console.log(friends)
 
@@ -378,6 +382,8 @@ const ChatArea = () => {
         get_chat_list_class.style.left = '-300px'
     }
 
+
+
     const [searchinput, setSearchInput] = useState("")
 
     const get_search_input = (e) => {
@@ -412,11 +418,12 @@ const ChatArea = () => {
         if(searchinput == ""){
 
             console.log("Search Input Reseted")
-            fetch_added_friends_profiles()
+            
+            setFriends(filtered_friends_data)
         }else{
             console.log("Search Found")
 
-            const search_result = friends.filter(friend_data => friend_data.firstname.includes(searchinput) || friend_data.lastname.includes(searchinput))
+            const search_result = filtered_friends_data.filter(friend_data => friend_data.fullname.toLowerCase().includes(searchinput.toLowerCase()) || friend_data.lastname.includes(searchinput))
 
             console.log(search_result)
 
@@ -431,7 +438,8 @@ const ChatArea = () => {
     useEffect(() => {
 
         searching_users()
-    }, [searchinput])
+        
+    }, [searchinput, filtered_friends_data])
 
 
 
