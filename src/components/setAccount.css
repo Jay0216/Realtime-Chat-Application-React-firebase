@@ -211,3 +211,123 @@
     }
     
 }
+
+
+/* Media query for laptops */
+@media (min-width: 1024px) {
+    .main-cls {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #0E1413;
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .main-content {
+        width: 60%;
+        padding: 5%;
+        margin-left: 1%;
+        margin-top: 5%;
+        
+    }
+
+    .account-main {
+        width: 80%;
+        margin-left: 10%;
+        text-align: center;
+    }
+
+    .next-btn .btn {
+        width: 20%;
+        margin-top: 5%;
+        margin-left: 15%;
+    }
+
+    .title {
+        width: 80%;
+        margin-left: 10%;
+        text-align: center;
+    }
+
+    .main-area {
+        width: 96%;
+        margin-left: 2%;
+        
+        text-align: center;
+    }
+
+    .image {
+        width:40%;
+        margin-left: 38%;
+        margin-top: 4%;
+        
+    }
+
+    .image Image {
+        width: 100%; /* Adjust width based on your preference */
+        height: 210px;
+        
+    }
+
+    .upload-area {
+        width: 96%;
+        margin-top: 2%;
+        margin-left: 20%;
+        
+    }
+
+    .input-area {
+        width: 80%;
+        margin-top: 8%;
+        text-align: center;
+        margin-left: 10%;
+    }
+
+    .step-counter {
+        width: 20%;
+        margin-top: 2%;
+        margin-left: 40%;
+        text-align: center;
+    }
+
+    .input-areas {
+        width: 80%;
+        margin-top: 3%;
+        margin-left: 10%;
+        text-align: center;
+    }
+
+    .input-areas h2 {
+        margin-bottom: 2%;
+    }
+
+    .input-areas .nickname-area {
+        margin-top: 3%;
+    }
+
+    .add-btn-2 {
+        width: 20%;
+        margin-top: 2%;
+        margin-left: 40%;
+    }
+
+    .submit-btn {
+        width: 20%;
+        margin-top: 5%;
+        margin-left: 40%;
+    }
+
+    .tasks-done {
+        width: 20%;
+        margin-top: 5%;
+        margin-left: 20%;
+        text-align: center;
+    }
+
+    .step-title{
+        text-align: left;
+    }
+}
