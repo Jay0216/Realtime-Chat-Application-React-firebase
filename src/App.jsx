@@ -4,7 +4,7 @@ import Home from "./components/Home"
 import Signin from "./components/Signin"
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
 import ChatArea from "./components/Chat"
-import Account from "./components/AccountContent/Accout"
+import Account from "./components/Accout"
 import Profile from "./components/Profile"
 
 

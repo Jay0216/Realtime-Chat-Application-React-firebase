@@ -116,7 +116,7 @@
 
 
     .main-content{
-        padding-top: 0%;
+        padding-top: 10%;
         margin-left: 0%;
         margin-right: 2%;
 
@@ -145,6 +145,14 @@
         flex-direction: column;
         
         
+    }
+
+    .username-area Input{
+        width: 250px;
+    }
+
+    .nickname-area Input{
+        width: 250px;
     }
 
 

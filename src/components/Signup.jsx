@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import { getFirestore, addDoc, collection, doc } from "firebase/firestore"
 import { firebase_services } from "../components/FirebaseServices"
 import { useReducer, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Signup = () => {
 
@@ -199,7 +199,7 @@ const Signup = () => {
 
                     <div className="forms-area">
                       <h1>Get Started with Chatbook</h1>
-                      <h3>Already Have an account ?</h3>
+                      <h3>Already Have an account ? <Link className="link" to="/signin">Login</Link></h3>
 
                   <div>
                       <div className="first-fields">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./setAccount.css"
 import {  Button, Image, Input, useToast } from "@chakra-ui/react";
 import { addDoc, collection, doc, getFirestore, updateDoc } from "firebase/firestore"
-import { firebase_services } from "../FirebaseServices";
+import { firebase_services } from "./FirebaseServices";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
 import { useLocation } from "react-router-dom"
 
