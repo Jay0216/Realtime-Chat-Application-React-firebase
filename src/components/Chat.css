@@ -151,14 +151,17 @@
 
 .cht-intro{
     
-    width: 65%;
-    margin-left: 100px;
+    width: 100%;
+   
     text-align: center;
     margin-top: 140px;
+    max-width: 400px;
 }
 
 .cht-intro-img{
-    margin-left: 150px;
+    
+    width: 100%;
+    max-width: 500px;
 }
 
 .search-bar{
@@ -296,7 +299,7 @@
     }
 
     .chat-list {
-        width: 44%; 
+        width: 40%; 
         height: 100vh;
         right: 50px; 
     }
@@ -379,18 +382,24 @@
     }
 
     .cht-intro {
-        width: 60%; 
-        margin-left: 100px;
+        width: 100%; 
+        max-width: 400px;
         text-align: center;
-        margin-top: 100px;
+        margin-top: 150px;
+        margin-right: 130px;
+        font-size: 18px;
     }
 
     .cht-intro-img {
-        margin-left: 100px;
+        
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
     }
 
     .search-bar {
         margin-top: 50px;
+        margin-left: 40px;
     }
 
     .chat-list div{

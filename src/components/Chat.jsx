@@ -567,7 +567,7 @@ const ChatArea = () => {
                     
                     <h1>Welcome to chat room</h1>
                     <h2>width : {chatwidth}</h2>
-                    <img className="cht-intro-img" src="src/assets/Img-07.png" alt="" width="420px"/>
+                    <img className="cht-intro-img" src="src/assets/Img-07.png" alt="" />
                     
                    </div>
                 </div>
