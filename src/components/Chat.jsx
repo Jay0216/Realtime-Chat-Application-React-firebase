@@ -384,6 +384,11 @@ const ChatArea = () => {
 
 
 
+
+
+
+
+
     const [searchinput, setSearchInput] = useState("")
 
     const get_search_input = (e) => {
@@ -405,7 +410,15 @@ const ChatArea = () => {
 
     
 
-    
+    //in this search function using two arrays 
+    //one array (original data array) for represent already fetched data and filtered data
+    // second array (filtered array) is using for filtering data (only for filtering purpose
+    //and that filtered data also passed to the orginal data array)
+
+
+    //because one data array can't compute already fecthced data and filtered data and 
+    //represent that both filtered and alrady fetched data in frontend 
+    //that's why getting the bug
 
 
     const searching_users = () => {
@@ -418,6 +431,10 @@ const ChatArea = () => {
         if(searchinput == ""){
 
             console.log("Search Input Reseted")
+
+            console.log(filtered_friends_data)
+
+            console.log(friends)
             
             setFriends(filtered_friends_data)
         }else{

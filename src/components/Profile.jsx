@@ -507,6 +507,16 @@ const Profile = () => {
 
     }
 
+    //in this search function using two arrays 
+    //one array (original data array) for represent already fetched data and filtered data
+    // second array (filtered array) is using for filtering data (only for filtering purpose
+    //and that filtered data also passed to the orginal data array)
+
+
+    //because one data array can't compute already fecthced data and filtered data and 
+    //represent that both filtered and alrady fetched data in frontend 
+    //that's why getting the bug
+
 
     const search_users = () => {
 
@@ -515,7 +525,10 @@ const Profile = () => {
      if(searchinput == ""){
        console.log("Search Input Reseted")
 
-       
+       console.log(data)
+
+       console.log(filtered_data)
+
        setData(filtered_data)
      }else{
        
@@ -523,11 +536,17 @@ const Profile = () => {
 
        const search_result = filtered_data.filter(profiles => profiles.username.toLowerCase().includes(searchinput.toLowerCase()))
 
+
+
        setData(search_result)
 
        console.log("Search User Found")
 
        console.log(search_result)
+
+       console.log(filtered_data)
+
+       console.log(data)
 
      }
 
