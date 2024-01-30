@@ -115,7 +115,7 @@
     width: 140%;
     overflow-x: hidden;
     overflow-y: auto;
-    max-width: 610px;
+    max-width: 630px;
     
 }
 
@@ -213,7 +213,7 @@
         margin-top: 70px;
         padding: 4px;
         height: 570px;
-        max-width: 100%; 
+        max-width: 99%; 
         overflow-x: hidden;
         overflow-y: auto;
         font-size: 13px;
@@ -251,6 +251,153 @@
 
     
 }
+
+
+
+
+/* Media query for laptops */
+@media (min-width: 1024px) {
+    .chat-main {
+        min-height: 100vh;
+    }
+
+    .content-area {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .chat-active {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .chat-area {
+        margin-left: 100px;
+        width: 60%; 
+    }
+
+    .profile-area h1 {
+        padding-top: 16px;
+        font-size: 16px;
+        
+    }
+
+    .chat-input {
+        margin-top: 0px;
+        width: 100%; 
+        max-width: 640px;
+        display: flex;
+    }
+
+    .chat-input .input {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .chat-list {
+        width: 44%; 
+        height: 100vh;
+        right: 50px; 
+    }
+
+    .chat-list div {
+        margin-bottom: 20px; 
+    }
+
+    .chat-friends {
+        display: flex;
+        align-items: center;
+        margin-top: 80px; 
+        cursor: pointer;
+        margin-left: 30px;
+    }
+
+    .names {
+        margin-left: 80px; 
+    }
+
+    .pro-image-chat {
+        border-radius: 50px;
+        width: 70px; 
+        height: 70px; 
+    }
+
+    .msgs {
+        display: inline-block;
+        padding-top: 20px; 
+    }
+
+    .msg-alert {
+        margin-left: 20px; 
+        font-size: 12px; 
+    }
+
+    .chat-btns-areas {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .send-btn {
+        margin-right: 100px; 
+    }
+
+    
+
+    .msg-area {
+        margin-top: 60px; 
+        padding: 4px;
+        height: 78vh; 
+        width: 85%; 
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-width: none; 
+        font-size: 12px;
+    }
+
+    .msg-area::-webkit-scrollbar {
+        display: none;
+    }
+
+    .messages {
+        display: inline-block;
+        word-wrap: break-word;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+
+    .incoming {
+        text-align: left;
+        color: #fff;
+    }
+
+    .outgoing {
+        color: #fff;
+        text-align: right;
+    }
+
+    .cht-intro {
+        width: 60%; 
+        margin-left: 100px;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .cht-intro-img {
+        margin-left: 100px;
+    }
+
+    .search-bar {
+        margin-top: 50px;
+    }
+
+    .chat-list div{
+        margin-bottom: 35px;
+    }
+}
+
 
 
 
