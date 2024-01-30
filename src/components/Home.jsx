@@ -32,7 +32,7 @@ const Home = () => {
 
         const btn_class = btnsClass.current
 
-        btn_class.style.right = "0px"
+        btn_class.style.right = "0"
         
 
     }
