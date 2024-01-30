@@ -103,7 +103,7 @@
     margin-left: 80px;
 }
 
-
+/*media query for mobile devices*/
 @media (max-width: 600px){
 
     .main-cls{
@@ -213,7 +213,7 @@
 }
 
 
-/* Media query for laptops */
+/* media query for laptops */
 @media (min-width: 1024px) {
     .main-cls {
         width: 100%;
@@ -267,7 +267,7 @@
     }
 
     .image Image {
-        width: 100%; /* Adjust width based on your preference */
+        width: 100%; 
         height: 210px;
         
     }
@@ -280,49 +280,49 @@
     }
 
     .input-area {
-        width: 80%;
+        width: 90%;
         margin-top: 8%;
         text-align: center;
-        margin-left: 10%;
+        margin-left: 4%;
     }
 
     .step-counter {
         width: 20%;
-        margin-top: 2%;
+        margin-top: 8%;
         margin-left: 40%;
         text-align: center;
     }
 
     .input-areas {
         width: 80%;
-        margin-top: 3%;
+        margin-top: 5%;
         margin-left: 10%;
         text-align: center;
     }
 
     .input-areas h2 {
-        margin-bottom: 2%;
+        margin-bottom: 5%;
     }
 
     .input-areas .nickname-area {
-        margin-top: 3%;
+        margin-top: 8%;
     }
 
     .add-btn-2 {
         width: 20%;
-        margin-top: 2%;
+        margin-top: 12%;
         margin-left: 40%;
     }
 
     .submit-btn {
         width: 20%;
-        margin-top: 5%;
+        margin-top: 20%;
         margin-left: 40%;
     }
 
     .tasks-done {
-        width: 20%;
-        margin-top: 5%;
+        width: 60%;
+        margin-top: 10%;
         margin-left: 20%;
         text-align: center;
     }
