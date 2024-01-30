@@ -20,7 +20,7 @@ const ChatArea = () => {
     const get_props = get_user_props.state
 
 
-    console.log(get_props)
+    //console.log(get_props)
 
     
 
@@ -47,7 +47,7 @@ const ChatArea = () => {
 
         friends_book.forEach((fr) => {
 
-            console.log(fr.data())
+            //console.log(fr.data())
 
             let friends_data  = fr.data()
 
@@ -65,7 +65,7 @@ const ChatArea = () => {
         
         setFriends(friends_profiles)
 
-        console.log(friends)
+        //console.log(friends)
 
     } 
 
@@ -221,7 +221,7 @@ const ChatArea = () => {
 
     const fetch_real_time_messages =  () => {
 
-        console.log("Fetching Incoming Messages")
+        //console.log("Fetching Incoming Messages")
 
         let fetched_msgs = []
         let send_msg = []
@@ -240,7 +240,7 @@ const ChatArea = () => {
 
                
                 if(change.type == "added"){
-                    console.log(change.doc.data().message)
+                    //console.log(change.doc.data().message)
 
                     let data = change.doc.data()
 
@@ -279,7 +279,7 @@ const ChatArea = () => {
             snapshots.docChanges().forEach((send_msgs) => {
 
                 if(send_msgs.type == "added"){
-                    console.log(send_msgs.doc.data().message)
+                    //console.log(send_msgs.doc.data().message)
 
                     let data = send_msgs.doc.data()
 
@@ -300,7 +300,7 @@ const ChatArea = () => {
 
         
 
-        console.log(recieved)
+        //console.log(recieved)
 
         const new_message = [...recieved.map(msgs => ({ ...msgs, isincomingmsg: true })), ...send.map(msgs => ({ ...msgs, isincomingmsg: false }))]
 
@@ -447,9 +447,18 @@ const ChatArea = () => {
 
     
 
+    const messageClassName = useRef(null)
   
 
-    
+    const message_options = () => {
+
+        console.log("Message Options Open")
+
+
+        const message_class = messageClassName.current
+
+        console.log(message_class.className)
+    }
 
 
 
@@ -593,7 +602,9 @@ const ChatArea = () => {
                         {msglist.map((msgs,  index) => (
                             <li key={index} className={msgs.isincomingmsg ? 'incoming' : 'outgoing'}>
 
-                                <div className="messages">
+                                <div  className="messages">
+                                  
+                                  
                                   {msgs.message} 
                                   
                                 </div>
