@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./setAccount.css"
 import {  Button, Image, Input, useToast } from "@chakra-ui/react";
 import { addDoc, collection, doc, getFirestore, updateDoc } from "firebase/firestore"
 import { firebase_services } from "./FirebaseServices";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
-import { useLocation } from "react-router-dom"
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage"
+import { useLocation, useNavigate } from "react-router-dom"
 
 
 const Account = () => {
@@ -36,14 +36,13 @@ const Account = () => {
 
     if(!file_types.includes(e.target.files[0].type)){
       alert("Please Insert Jpeg or Jpg Files")
-
       location.reload()
     }else{
 
       setImageUrl(URL.createObjectURL(e.target.files[0]))
-
       setImage(e.target.files[0])
       setFirst(true)
+      
 
 
     }
@@ -52,48 +51,117 @@ const Account = () => {
 
   }
 
+  const [progress, setProgress] = useState("0%")
+  const [progress_value, setProgressValue] = useState(0)
+  const [button_status, setButtonStatus] = useState("Add")
+  const [is_add_btn, setIsAddButton] = useState(false)
+
+  //in the upload profile picture have some bugs in the previous version don't have a progress bar to find uploading
+  //profile picture into backend this bug is cuases to uploading picture sometime not uploading correctly
+  //for that i implemented a feature for that.
+  //in that feature first uploading the profile picture to backend
+  //then after upload done it will show 100% on the progress bar and it will show add button
+  //click that add button it will show adding to profile
+  //it means the profile picture is adding to the profile
+  //after finish that it will show added and button also changed as next
+  //that next button will take to second step after all done
+  //i'm using two separate buttons it will show based on the condition(conditonal rendering)
+  //and i use useEffect for download the uploaded image to the profile
+  //and then check button text is 'next' it will next users can be change the step
+  
+
   const upload_profile_picture =  () => {
 
     const image_ref = ref(firebase_storage, `profileimages/${image.name}`)
+    const upload_image = uploadBytesResumable(image_ref, image)
+
+    
 
 
+    upload_image.on('state_changed', 
+      (snapshot) => {
+
+        const progress_value_1 =  (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        setProgress(`Uploading to Backend ${parseInt(progress_value_1.toString())}%`)
+        setProgressValue(progress_value_1)
+        setIsAddButton(true)
+        
+        
+      })
 
 
-    uploadBytes(image_ref, image).then((snapshot) => {
-      console.log("Uploaded a Image to Firebase Storage")
-
-      console.log(snapshot)
+    
+    
+    
 
 
       
-    })
 
+      
 
-    console.log('Uploaded Your Profile Picture')
-
-
-
+    
   }
+
+  
 
   const download_imagedata = () => {
 
-    const image_ref = ref(firebase_storage, `profileimages/${image.name}`)
+    
 
+    setProgress("Adding to your Profile Please Wait...")
+
+    
+
+    const image_ref = ref(firebase_storage, `profileimages/${image.name}`)
 
     getDownloadURL(image_ref)
 
       .then((url) => {
         setDownloadUrl(url)
         console.log(download_url)
+        
+        
       })
 
+    
+
+    
+    
   }
+
+  const [isdownload, setIsDowload] = useState(false)
+
+  const add_profile_pic = () => {
+
+    
+
+    
+
+    if(button_status == "Add"){
+      setIsDowload(true)
+    }else if(button_status == "Next"){
+      check_first_step()
+    }
+    
+  }
+
+  useEffect(() => {
+
+
+    if(download_url == "" && isdownload){
+      download_imagedata()
+      
+    }else if(download_url != ""){
+      console.log(download_url)
+      setProgress("Added")
+      setButtonStatus("Next")
+    }
+  }, [download_url, isdownload])
 
 
   const get_username = (e) => {
 
     setUserName(e.target.value)
-
     setSecond(true)
 
   }
@@ -101,15 +169,14 @@ const Account = () => {
   const get_nickname = (e) => {
 
     setNickName(e.target.value)
-
     setSecond(true)
   }
 
   const check_first_step = () => {
 
 
-    if(first_step){
-
+    if(first_step && progress_value == 100){
+      
       setStepCount(2)
     }
   }
@@ -120,11 +187,9 @@ const Account = () => {
 
     if(image_url == ""){
       alert("Please insert a Image")
-    }else{
-      check_first_step()
-
+    }
+    else{
       upload_profile_picture()
-
     }
 
     
@@ -133,7 +198,6 @@ const Account = () => {
   const check_second_step = () => {
 
     if(second_step){
-
       setStepCount(3)
     }
   }
@@ -144,9 +208,9 @@ const Account = () => {
       alert("Please Fill Input Fields..")
     }else{
 
+      
       check_second_step()
-
-      download_imagedata()
+      
     }
 
   }
@@ -181,19 +245,16 @@ const Account = () => {
   const Db_connection = getFirestore(firebase_services)
 
 
-  //getting props coming from the Signup Component using useLocation Hook in React Router
+  
   const user_props_location = useLocation()
-
-
-  //getting state (props object ) of the signup component and also use this user props keys that keys stores that props
   const user_props = user_props_location.state
+
+
+  const navigation_to_login = useNavigate()
 
 
 
   const profile_submit = async () => {
-
-    console.log('Profile Submitted..')
-
 
     try{
 
@@ -208,18 +269,15 @@ const Account = () => {
         
       })
 
-      
-         
-
-      console.log("Account Settings Done..")
       console.log(Profile_details.id)
-
       success_toast()
+
+      navigation_to_login("/signin")
+
 
     }catch(e){
 
       console.log(e)
-
       error_toast()
     }
 
@@ -229,6 +287,9 @@ const Account = () => {
 
 
   }
+
+
+  //profile picture upload progress feature is implemented
 
 
 
@@ -266,8 +327,19 @@ const Account = () => {
               <input onChange={get_profile_picture} type="file" name="file" />
 
 
-              <Button backgroundColor="green.600" onClick={add_profile_image}>Add</Button>
+              {is_add_btn != true ? 
+              <Button backgroundColor="green.600" onClick={add_profile_image}>upload</Button> 
+
+              
+              : <Button backgroundColor="green.600" onClick={add_profile_pic}>{button_status}</Button>
+              
+             }
+
+
             </div>
+
+            <progress value={progress_value} max="100"></progress>
+             <h3>{progress}</h3>
            </div>
 
          </div>

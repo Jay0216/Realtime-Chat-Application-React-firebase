@@ -209,6 +209,10 @@
     .submit-btn{
         margin-left: 0%;
     }
+
+    progress{
+        margin-top: 40px;
+    }
     
 }
 
@@ -329,5 +333,9 @@
 
     .step-title{
         text-align: left;
+    }
+
+    progress{
+        margin-top: 40px;
     }
 }
