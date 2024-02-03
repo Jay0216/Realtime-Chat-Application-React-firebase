@@ -150,6 +150,10 @@
 }
 
 .cht-intro{
+    width: 100%;
+}
+
+.cht-intro-content{
     
     width: 100%;
    
@@ -253,8 +257,6 @@
     
 
     
-
-    
 }
 
 
@@ -263,7 +265,7 @@
 /* Media query for laptops */
 @media (min-width: 1024px) {
     .chat-main {
-        min-height: 100vh;
+        min-height: 70vh;
     }
 
     .content-area {
@@ -293,17 +295,21 @@
         width: 100%; 
         max-width: 640px;
         display: flex;
+        
     }
 
     .chat-input .input {
         flex: 1;
         margin-right: 10px;
+       
     }
 
     .chat-list {
         width: 40%; 
         height: 100vh;
         right: 50px; 
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .chat-list div {
@@ -342,6 +348,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-top: 50px;
     }
 
     .send-btn {
@@ -353,7 +360,7 @@
     .msg-area {
         margin-top: 60px; 
         padding: 4px;
-        height: 78vh; 
+        height: 70vh; 
         width: 85%; 
         overflow-x: hidden;
         overflow-y: auto;
@@ -384,11 +391,17 @@
     }
 
     .cht-intro {
-        width: 100%; 
+        width: 46%; 
+        
+        
+    }
+
+    .cht-intro-content{
+        width: 100%;
         max-width: 400px;
         text-align: center;
-        margin-top: 150px;
-        margin-right: 130px;
+        margin-top: 100px;
+        
         font-size: 18px;
     }
 
@@ -407,8 +420,6 @@
     .chat-list div{
         margin-bottom: 35px;
     }
-
-    
 }
 
 

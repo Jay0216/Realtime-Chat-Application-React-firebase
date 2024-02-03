@@ -347,6 +347,17 @@ const Profile = () => {
       //load the login profile details
     }
 
+    const navigate = useNavigate()
+
+    const sign_out = () => {
+
+      console.log("Sign out Feature")
+
+      
+
+      navigate("/")
+    }
+
     
     
 
@@ -705,7 +716,7 @@ const Profile = () => {
                   
 
 
-                  <Button className="view-btn" onClick={your_profile}>View</Button>
+                  <Button className="view-btn" onClick={sign_out}>Sign out</Button>
                 </div>
 
 
