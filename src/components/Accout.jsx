@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./setAccount.css"
-import {  Button, Image, Input, useToast } from "@chakra-ui/react";
+import {  Button, Image, Input, useTimeout, useToast } from "@chakra-ui/react";
 import { addDoc, collection, doc, getFirestore, updateDoc } from "firebase/firestore"
 import { firebase_services } from "./FirebaseServices";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage"
@@ -53,8 +53,8 @@ const Account = () => {
 
   const [progress, setProgress] = useState("0%")
   const [progress_value, setProgressValue] = useState(0)
-  const [button_status, setButtonStatus] = useState("Add")
-  const [is_add_btn, setIsAddButton] = useState(false)
+  const [button_status, setButtonStatus] = useState("Upload")
+  //const [is_add_btn, setIsAddButton] = useState(false)
 
   //in the upload profile picture have some bugs in the previous version don't have a progress bar to find uploading
   //profile picture into backend this bug is cuases to uploading picture sometime not uploading correctly
@@ -68,6 +68,17 @@ const Account = () => {
   //i'm using two separate buttons it will show based on the condition(conditonal rendering)
   //and i use useEffect for download the uploaded image to the profile
   //and then check button text is 'next' it will next users can be change the step
+
+
+
+  //now the can get exactly output in uploaded feature i'm remove the conditional rendering and other add method
+  //that use in another button created on conditioal rendering
+
+  // and i apply the download_imagedata process into the upload profile picture method
+  //and i'm calling inside the upload image method this method firstly uploaded the image and after uploaded
+  //immediately execute download_image method (that concept is promise chanining concept)
+  // after that downloaded it will check inside the useEffect hook the download url is not null if it not null
+  //automatically change the button status and then show success msg
   
 
   const upload_profile_picture =  () => {
@@ -84,10 +95,30 @@ const Account = () => {
         const progress_value_1 =  (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         setProgress(`Uploading to Backend ${parseInt(progress_value_1.toString())}%`)
         setProgressValue(progress_value_1)
-        setIsAddButton(true)
         
         
-      })
+        
+      }, 
+      
+      (e) => {
+        console.log(e)
+      },
+
+
+      () => {
+        download_imagedata()
+      }
+      
+      )
+
+      
+
+
+      
+
+      
+
+
 
 
     
@@ -102,13 +133,17 @@ const Account = () => {
     
   }
 
+  //this is not the right place for set the time to function need to delay the actual download function
+
   
+
+  // need to fix small bug in upload feature 
 
   const download_imagedata = () => {
 
+  
+    setProgress("Now Adding to Profile")
     
-
-    setProgress("Adding to your Profile Please Wait...")
 
     
 
@@ -129,34 +164,36 @@ const Account = () => {
     
   }
 
-  const [isdownload, setIsDowload] = useState(false)
+  //const [isdownload, setIsDowload] = useState(false)
 
-  const add_profile_pic = () => {
-
-    
+ // const add_profile_pic = () => {
 
     
 
-    if(button_status == "Add"){
-      setIsDowload(true)
-    }else if(button_status == "Next"){
-      check_first_step()
-    }
     
-  }
+
+    //if(button_status == "Add"){
+      //setIsDowload(true)
+    //}else if(button_status == "Next"){
+      //check_first_step()
+    //}
+    
+  //}
 
   useEffect(() => {
 
 
-    if(download_url == "" && isdownload){
-      download_imagedata()
-      
-    }else if(download_url != ""){
+    
+    if(download_url != ""){
       console.log(download_url)
       setProgress("Added")
       setButtonStatus("Next")
-    }
-  }, [download_url, isdownload])
+     }
+
+   
+  }, [download_url])
+
+  
 
 
   const get_username = (e) => {
@@ -190,6 +227,7 @@ const Account = () => {
     }
     else{
       upload_profile_picture()
+      check_first_step()
     }
 
     
@@ -327,13 +365,11 @@ const Account = () => {
               <input onChange={get_profile_picture} type="file" name="file" />
 
 
-              {is_add_btn != true ? 
-              <Button backgroundColor="green.600" onClick={add_profile_image}>upload</Button> 
+              
+              <Button backgroundColor="green.600" onClick={add_profile_image}>{button_status}</Button> 
 
               
-              : <Button backgroundColor="green.600" onClick={add_profile_pic}>{button_status}</Button>
               
-             }
 
 
             </div>
